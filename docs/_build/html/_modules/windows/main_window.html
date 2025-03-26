@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>windows.main_window &mdash; computer-club-system documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            computer-club-system documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">db-gui-app</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">computer-club-system documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">windows.main_window</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for windows.main_window</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;File with MainWindow class&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span> <span class="k">as</span> <span class="nn">ctk</span>
+<span class="kn">from</span> <span class="nn">.table_window</span> <span class="kn">import</span> <span class="n">TableWindow</span>
+<span class="kn">from</span> <span class="nn">.functions_window</span> <span class="kn">import</span> <span class="n">FunctionsWindow</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+
+<div class="viewcode-block" id="MainWindow">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow">[docs]</a>
+<span class="k">class</span> <span class="nc">MainWindow</span><span class="p">(</span><span class="n">ctk</span><span class="o">.</span><span class="n">CTk</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class manages main window of application&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor of class&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;1080x400&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;db viewer&quot;</span><span class="p">)</span>
+        <span class="n">customtkinter</span><span class="o">.</span><span class="n">set_appearance_mode</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+        <span class="n">customtkinter</span><span class="o">.</span><span class="n">set_default_color_theme</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_widgets</span><span class="p">()</span>
+
+<div class="viewcode-block" id="MainWindow.open_computers">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_computers">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_computers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;computers&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_companies">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_companies">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_companies</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;service_companies&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_plans">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_plans">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_plans</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;plans&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_rooms">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_rooms">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_rooms</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;rooms&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_types">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_types">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_types</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;computer_type&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_components">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_components">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_components</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;components&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_characteristics">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_characteristics">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_characteristics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">TableWindow</span> <span class="o">=</span> <span class="n">TableWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;computer_characteristics&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.open_functions">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.open_functions">[docs]</a>
+    <span class="k">def</span> <span class="nf">open_functions</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Method to open table&quot;&quot;&quot;</span>
+        <span class="n">window</span><span class="p">:</span> <span class="n">FunctionsWindow</span> <span class="o">=</span> <span class="n">FunctionsWindow</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;functions&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.draw_widgets">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.draw_widgets">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Drawing all widgets on scheme&quot;&quot;&quot;</span>
+        <span class="c1"># Main scheme</span>
+        <span class="c1"># scheme_img = tkinter.PhotoImage(file=&quot;./assets/main.png&quot;)</span>
+        <span class="n">scheme_img</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./assets/main.png&quot;</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1040</span><span class="p">,</span> <span class="mi">315</span><span class="p">))</span>
+        <span class="n">scheme_label</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="n">scheme_img</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">scheme_label</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Computers button</span>
+        <span class="n">computers_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Компьютеры&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_computers</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">computers_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">498</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">96</span><span class="p">)</span>
+        <span class="c1"># Service companies button</span>
+        <span class="n">companies_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Обслуживающие компании&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_companies</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">190</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">companies_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">473</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">223</span><span class="p">)</span>
+        <span class="c1"># Plans button</span>
+        <span class="n">plans_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Тарифы&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_plans</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">plans_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">927</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">174</span><span class="p">)</span>
+        <span class="c1"># Rooms button</span>
+        <span class="n">rooms_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Помещения&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_rooms</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">rooms_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">741</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">47</span><span class="p">)</span>
+        <span class="c1"># Types button</span>
+        <span class="n">types_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Типы компьютеров&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_types</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">types_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">730</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">161</span><span class="p">)</span>
+        <span class="c1"># Components button</span>
+        <span class="n">components_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Компоненты&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_components</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">components_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">56</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">143</span><span class="p">)</span>
+        <span class="c1"># Characteristics button</span>
+        <span class="n">characteristics_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Характеристики компьютеров&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_characteristics</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">120</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">7</span>
+        <span class="p">)</span>
+        <span class="n">characteristics_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">229</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">122</span><span class="p">)</span>
+        <span class="c1"># Functions button</span>
+        <span class="c1"># functions_image = tkinter.PhotoImage(file=&quot;./assets/fx.png&quot;)</span>
+        <span class="n">functions_image</span> <span class="o">=</span> <span class="n">customtkinter</span><span class="o">.</span><span class="n">CTkImage</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;./assets/fx.png&quot;</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+        <span class="n">functions_button</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+            <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">open_functions</span><span class="p">,</span>
+            <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">height</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">image</span><span class="o">=</span><span class="n">functions_image</span>
+        <span class="p">)</span>
+        <span class="n">functions_button</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">author</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;ⓒ Timothy&quot;</span><span class="p">)</span>
+        <span class="n">author</span><span class="o">.</span><span class="n">place</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1010</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">375</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MainWindow.run_app">
+<a class="viewcode-back" href="../../windows.html#windows.main_window.MainWindow.run_app">[docs]</a>
+    <span class="k">def</span> <span class="nf">run_app</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Running an application&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GIZS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

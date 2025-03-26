@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>windows.functions_window &mdash; computer-club-system documentation 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=8d563738"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            computer-club-system documentation
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">db-gui-app</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">computer-club-system documentation</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">windows.functions_window</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for windows.functions_window</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;File with FunctionsWindow class&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span>
+<span class="kn">import</span> <span class="nn">customtkinter</span> <span class="k">as</span> <span class="nn">ctk</span>
+<span class="kn">import</span> <span class="nn">tkinter</span>
+<span class="kn">from</span> <span class="nn">tkinter</span> <span class="kn">import</span> <span class="n">ttk</span>
+<span class="kn">from</span> <span class="nn">database.db</span> <span class="kn">import</span> <span class="n">Database</span>
+
+
+<div class="viewcode-block" id="FunctionsWindow">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow">[docs]</a>
+<span class="k">class</span> <span class="nc">FunctionsWindow</span><span class="p">(</span><span class="n">ctk</span><span class="o">.</span><span class="n">CTk</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class manages functions module in application&quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Constructor of class&quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">title</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">db_obj</span> <span class="o">=</span> <span class="n">Database</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkToplevel</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">geometry</span><span class="p">(</span><span class="s2">&quot;670x250&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">customtkinter</span><span class="o">.</span><span class="n">set_appearance_mode</span><span class="p">(</span><span class="s2">&quot;dark&quot;</span><span class="p">)</span>
+        <span class="n">customtkinter</span><span class="o">.</span><span class="n">set_default_color_theme</span><span class="p">(</span><span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">draw_widgets</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grab_focus</span><span class="p">()</span>
+
+<div class="viewcode-block" id="FunctionsWindow.get_comp_count">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow.get_comp_count">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_comp_count</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Getting and drawing components count&quot;&quot;&quot;</span>
+        <span class="n">comp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry_comp</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">comp_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_obj</span><span class="o">.</span><span class="n">call_comp_count</span><span class="p">(</span><span class="n">comp</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">comp_count</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_count_var</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Количество: </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FunctionsWindow.get_plan_price">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow.get_plan_price">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_plan_price</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Getting and drawing plan price&quot;&quot;&quot;</span>
+        <span class="n">plan</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">entry_price</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+        <span class="n">active_data_price</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_obj</span><span class="o">.</span><span class="n">call_func_plan_price</span><span class="p">(</span><span class="n">plan</span><span class="p">)</span>
+        <span class="n">price</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">active_data_price</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_var</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Цена тарифа: </span><span class="si">{</span><span class="n">price</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FunctionsWindow.set_styles">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow.set_styles">[docs]</a>
+    <span class="k">def</span> <span class="nf">set_styles</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Setting styles for GUI&quot;&quot;&quot;</span>
+        <span class="c1"># Styles</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+            <span class="s2">&quot;Treeview.Heading&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;dodgerblue1&quot;</span><span class="p">,</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+            <span class="s2">&quot;Treeview&quot;</span><span class="p">,</span>
+            <span class="n">fieldbackground</span><span class="o">=</span><span class="s2">&quot;grey20&quot;</span><span class="p">,</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="s2">&quot;Treeview&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;grey&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">)],</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;disabled&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Style</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span><span class="o">.</span><span class="n">theme_use</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+            <span class="s2">&quot;TNotebook&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;grey20&quot;</span><span class="p">,</span>
+            <span class="n">tabposition</span><span class="o">=</span><span class="s2">&quot;s&quot;</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span>
+            <span class="s2">&quot;TNotebook.Tab&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="s2">&quot;dodgerblue1&quot;</span><span class="p">,</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="s2">&quot;white&quot;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="s2">&quot;TNotebook&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">)]</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">style2</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="s2">&quot;TNotebook.Tab&quot;</span><span class="p">,</span>
+            <span class="n">background</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;white&quot;</span><span class="p">)],</span>
+            <span class="n">foreground</span><span class="o">=</span><span class="p">[(</span><span class="s2">&quot;selected&quot;</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)]</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FunctionsWindow.draw_widgets">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow.draw_widgets">[docs]</a>
+    <span class="k">def</span> <span class="nf">draw_widgets</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Drawing all widgets on form&quot;&quot;&quot;</span>
+        <span class="c1"># Styles exec</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_styles</span><span class="p">()</span>
+        <span class="c1"># Tabs</span>
+        <span class="n">tab_control</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Notebook</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="p">)</span>
+        <span class="n">tab_active_computers</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_control</span><span class="p">)</span>
+        <span class="n">tab_active_computers_count</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_control</span><span class="p">)</span>
+        <span class="n">tab_plan_price</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_control</span><span class="p">)</span>
+        <span class="n">tab_component_count</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_control</span><span class="p">)</span>
+        <span class="n">tab_control</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tab_active_computers</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Включенные компьютеры&quot;</span><span class="p">)</span>
+        <span class="n">tab_control</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tab_active_computers_count</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Количество включенных компьютеров&quot;</span><span class="p">)</span>
+        <span class="n">tab_control</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tab_plan_price</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Получить цену тарифа&quot;</span><span class="p">)</span>
+        <span class="n">tab_control</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">tab_component_count</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Количество комплектующих&quot;</span><span class="p">)</span>
+        <span class="n">tab_control</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+        <span class="c1"># Active computers count</span>
+        <span class="n">active_count_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_obj</span><span class="o">.</span><span class="n">call_proc_active_count</span><span class="p">()</span>
+        <span class="n">active_count_data_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">active_count_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">tab_active_computers_count</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">active_count_data_keys</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;headings&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">active_count_data_keys</span><span class="p">:</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">col</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">active_count_data</span><span class="p">:</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">tags</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">,))</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tkinter</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Active computers</span>
+        <span class="n">active_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">db_obj</span><span class="o">.</span><span class="n">call_proc_active</span><span class="p">()</span>
+        <span class="n">active_data_keys</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">active_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">tree</span> <span class="o">=</span> <span class="n">ttk</span><span class="o">.</span><span class="n">Treeview</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">tab_active_computers</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">active_data_keys</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="s2">&quot;headings&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">active_data_keys</span><span class="p">:</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">heading</span><span class="p">(</span><span class="n">col</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">col</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">active_data</span><span class="p">:</span>
+            <span class="n">tree</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">END</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">tags</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;odd&quot;</span><span class="p">,))</span>
+        <span class="n">tree</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">fill</span><span class="o">=</span><span class="n">tkinter</span><span class="o">.</span><span class="n">BOTH</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Active plans price</span>
+        <span class="n">plan_price_frame</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_plan_price</span><span class="p">,</span> <span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="c1"># Result label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">result_var</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">price_result_lbl</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="n">plan_price_frame</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">result_var</span><span class="p">)</span>
+        <span class="n">price_result_lbl</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># Row</span>
+        <span class="n">row_func_price</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">plan_price_frame</span><span class="p">)</span>
+        <span class="n">label_price</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="n">row_func_price</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Тариф&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_price</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkEntry</span><span class="p">(</span><span class="n">row_func_price</span><span class="p">)</span>
+        <span class="n">label_price</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_price</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">row_func_price</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="c1"># Button</span>
+        <span class="n">price_btn</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">plan_price_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Accept&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_plan_price</span><span class="p">)</span>
+        <span class="n">price_btn</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">plan_price_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+        <span class="c1"># Comp count</span>
+        <span class="n">comp_count_frame</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">tab_component_count</span><span class="p">,</span> <span class="n">fg_color</span><span class="o">=</span><span class="s2">&quot;transparent&quot;</span><span class="p">)</span>
+        <span class="c1"># Result label</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">comp_count_var</span> <span class="o">=</span> <span class="n">tkinter</span><span class="o">.</span><span class="n">StringVar</span><span class="p">()</span>
+        <span class="n">comp_lbl</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="n">comp_count_frame</span><span class="p">,</span> <span class="n">textvariable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">comp_count_var</span><span class="p">)</span>
+        <span class="n">comp_lbl</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+        <span class="c1"># Row</span>
+        <span class="n">row_comp</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkFrame</span><span class="p">(</span><span class="n">comp_count_frame</span><span class="p">)</span>
+        <span class="n">label_comp</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkLabel</span><span class="p">(</span><span class="n">row_comp</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Комплектующее&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_comp</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkEntry</span><span class="p">(</span><span class="n">row_comp</span><span class="p">)</span>
+        <span class="n">label_comp</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">entry_comp</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">row</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">padx</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+        <span class="n">row_comp</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="c1"># Button</span>
+        <span class="n">comp_btn</span> <span class="o">=</span> <span class="n">ctk</span><span class="o">.</span><span class="n">CTkButton</span><span class="p">(</span><span class="n">comp_count_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s2">&quot;Accept&quot;</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_comp_count</span><span class="p">)</span>
+        <span class="n">comp_btn</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">pady</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+        <span class="n">comp_count_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FunctionsWindow.grab_focus">
+<a class="viewcode-back" href="../../windows.html#windows.functions_window.FunctionsWindow.grab_focus">[docs]</a>
+    <span class="k">def</span> <span class="nf">grab_focus</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Making window running foreground&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">grab_set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">focus_set</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">wait_window</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, GIZS.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
